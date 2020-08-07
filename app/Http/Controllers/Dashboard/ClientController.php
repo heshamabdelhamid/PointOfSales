@@ -32,13 +32,13 @@ class ClientController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'phone' => 'required|array|min:1',
-            'phone.0' => 'required',
+            'phone' => 'required|min:1',
+            // 'phone.0' => 'required',
             'address' => 'required',
         ]);
 
         $request_data = $request->all();
-        $request_data['phone'] = array_filter($request->phone);
+        // $request_data['phone'] = array_filter($request->phone);
 
         Client::create($request_data);
 
